@@ -2,6 +2,11 @@
 
 This directory contains a simple singly linked list implementation in Go.
 
+Video tutorials:
+
+- <https://www.youtube.com/watch?v=zgAwMts9bRg>
+- <https://www.youtube.com/watch?v=PGcTioRPBhU>
+
 ## Structure
 
 - `linkedlist/`: Package implementing the linked list data structure
