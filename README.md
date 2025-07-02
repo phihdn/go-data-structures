@@ -1,6 +1,11 @@
 # Go Data Structures
 
-This repository contains implementations of various data structures in Go.
+This repository contains implementations of various data structures in Go. Each implementation includes:
+
+- Clean, well-documented Go code
+- Comprehensive test coverage
+- Example usage in a demo program
+- Documentation with Big O time complexity analysis
 
 ## Project Structure
 
@@ -12,7 +17,18 @@ go-data-structures/
 │   ├── cmd/                  # Command-line demo
 │   │   └── main.go           # Demo program for linked list
 │   └── linkedlist/           # Package implementation
-│       └── linkedlist.go     # Linked list code
+│       ├── linkedlist.go     # Linked list code
+│       └── linkedlist_test.go # Linked list tests
+├── stacks-queues/            # Stack and Queue implementations
+│   ├── README.md             # Stack and Queue documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for stack and queue
+│   ├── stack/                # Stack package implementation
+│   │   ├── stack.go          # Stack code
+│   │   └── stack_test.go     # Stack tests
+│   └── queue/                # Queue package implementation
+│       ├── queue.go          # Queue code
+│       └── queue_test.go     # Queue tests
 └── ... (other data structures)
 ```
 
@@ -24,11 +40,34 @@ To run a specific data structure example:
 # Run the linked list example
 cd linked-list/cmd
 go run main.go
+
+# Run the stack and queue examples
+cd stacks-queues/cmd
+go run main.go
 ```
 
 ## Available Data Structures
 
 1. **Linked List** - A linear collection of elements where each element points to the next
+2. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
+3. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+
+## Running Tests
+
+You can run tests for the implemented data structures:
+
+```bash
+# Run tests for linked list
+cd linked-list
+go test ./linkedlist
+
+# Run tests for stack and queue
+cd stacks-queues
+go test ./stack ./queue
+
+# Run tests for all data structures (from root directory)
+go test ./...
+```
 
 ## Adding New Data Structures
 
@@ -37,3 +76,5 @@ To add a new data structure:
 1. Create a new directory for it at the root level
 2. Add the implementation in a package subdirectory
 3. Create a cmd/main.go file to demonstrate its usage
+4. Add tests in *_test.go files
+5. Update this README.md to include your new data structure
