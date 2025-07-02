@@ -25,10 +25,32 @@ func (l linkedList) printListData() {
 	toPrint := l.head
 	for l.length != 0 {
 		fmt.Printf("%d ", toPrint.data)
-		toPrint = l.head.next
+		toPrint = toPrint.next
 		l.length--
 	}
 	fmt.Println()
+}
+
+func (l *linkedList) deleteWithValue(value int) {
+	if l.length == 0 {
+		return
+	}
+
+	if l.head.data == value {
+		l.head = l.head.next
+		l.length--
+		return
+	}
+
+	previousToDelete := l.head
+	for previousToDelete.next.data != value {
+		if previousToDelete.next.next == nil {
+			return
+		}
+		previousToDelete = previousToDelete.next
+	}
+	previousToDelete.next = previousToDelete.next.next
+	l.length--
 }
 
 func main() {
@@ -36,8 +58,12 @@ func main() {
 	node1 := &node{data: 10}
 	node2 := &node{data: 20}
 	node3 := &node{data: 30}
+	node4 := &node{data: 40}
 	mylist.prepend(node1)
 	mylist.prepend(node2)
 	mylist.prepend(node3)
-	mylist.printListData() // Output: 30 20 10
+	mylist.prepend(node4)
+	mylist.printListData()
+	mylist.deleteWithValue(40)
+	mylist.printListData()
 }
