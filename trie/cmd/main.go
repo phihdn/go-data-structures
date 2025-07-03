@@ -1,63 +1,51 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
-const AlphabetSize = 26
-
-type Node struct {
-	children [AlphabetSize]*Node
-	isEnd    bool
-}
-
-type Trie struct {
-	root *Node
-}
-
-func InitTrie() *Trie {
-	result := &Trie{
-		root: &Node{},
-	}
-	return result
-}
-
-func (t *Trie) Insert(word string) {
-	wordLength := len(word)
-	currentNode := t.root
-
-	for i := 0; i < wordLength; i++ {
-		charIndex := word[i] - 'a'
-		if currentNode.children[charIndex] == nil {
-			currentNode.children[charIndex] = &Node{}
-		}
-		currentNode = currentNode.children[charIndex]
-	}
-	currentNode.isEnd = true
-}
-
-func (t *Trie) Search(word string) bool {
-	wordLength := len(word)
-	currentNode := t.root
-
-	for i := 0; i < wordLength; i++ {
-		charIndex := word[i] - 'a'
-		if currentNode.children[charIndex] == nil {
-			return false
-		}
-		currentNode = currentNode.children[charIndex]
-	}
-	return currentNode.isEnd
-}
+	"github.com/phihdn/go-data-structures/trie/trie"
+)
 
 func main() {
-	myTrie := InitTrie()
+	// Initialize a new trie
+	fmt.Println("Initializing a new trie...")
+	myTrie := trie.InitTrie()
 
-	toInsertWords := []string{"hello", "world", "trie", "data", "structure"}
-
+	// Insert words
+	toInsertWords := []string{"hello", "world", "trie", "data", "structure", "help", "word"}
+	fmt.Println("Inserting words:", toInsertWords)
 	for _, word := range toInsertWords {
 		myTrie.Insert(word)
 	}
 
-	fmt.Println("Inserted words into the trie.")
+	// Search for words
+	fmt.Println("\n--- Search Operations ---")
 	fmt.Println("Searching for 'hello':", myTrie.Search("hello"))
 	fmt.Println("Searching for 'notfound':", myTrie.Search("notfound"))
+
+	// Check prefixes
+	fmt.Println("\n--- Prefix Operations ---")
+	fmt.Println("Starts with 'hel':", myTrie.StartsWith("hel"))
+	fmt.Println("Starts with 'dat':", myTrie.StartsWith("dat"))
+	fmt.Println("Starts with 'abc':", myTrie.StartsWith("abc"))
+
+	// Count words
+	fmt.Println("\n--- Count Operation ---")
+	fmt.Println("Number of words in trie:", myTrie.Count())
+
+	// List all words
+	fmt.Println("\n--- List Words Operation ---")
+	fmt.Println("All words in trie:", myTrie.ListWords())
+
+	// Delete words
+	fmt.Println("\n--- Delete Operations ---")
+	wordToDelete := "hello"
+	fmt.Printf("Deleting '%s': %v\n", wordToDelete, myTrie.Delete(wordToDelete))
+	fmt.Printf("Searching for '%s' after deletion: %v\n", wordToDelete, myTrie.Search(wordToDelete))
+	fmt.Println("Starts with 'hel' after deletion:", myTrie.StartsWith("hel"))
+
+	// Count after deletion
+	fmt.Println("\n--- Final State ---")
+	fmt.Println("Number of words after deletion:", myTrie.Count())
+	fmt.Println("All words after deletion:", myTrie.ListWords())
 }
