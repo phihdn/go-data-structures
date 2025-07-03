@@ -13,6 +13,13 @@ This repository contains implementations of various data structures in Go. Each 
 go-data-structures/
 ├── README.md                 # This file
 ├── go.mod                    # Module definition
+├── binary-search-tree/       # Binary Search Tree implementation
+│   ├── README.md             # BST documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for BST
+│   └── bst/                  # Package implementation
+│       ├── bst.go            # BST code
+│       └── bst_test.go       # BST tests
 ├── linked-list/              # Linked List implementation
 │   ├── cmd/                  # Command-line demo
 │   │   └── main.go           # Demo program for linked list
@@ -37,6 +44,10 @@ go-data-structures/
 To run a specific data structure example:
 
 ```bash
+# Run the binary search tree example
+cd binary-search-tree/cmd
+go run main.go
+
 # Run the linked list example
 cd linked-list/cmd
 go run main.go
@@ -48,15 +59,20 @@ go run main.go
 
 ## Available Data Structures
 
-1. **Linked List** - A linear collection of elements where each element points to the next
-2. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
-3. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+1. **Binary Search Tree** - A tree data structure with the key in each node being greater than all keys in the left subtree and less than all keys in the right subtree
+2. **Linked List** - A linear collection of elements where each element points to the next
+3. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
+4. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
 
 ## Running Tests
 
 You can run tests for the implemented data structures:
 
 ```bash
+# Run tests for binary search tree
+cd binary-search-tree
+go test ./bst
+
 # Run tests for linked list
 cd linked-list
 go test ./linkedlist
