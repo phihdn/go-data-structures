@@ -36,6 +36,13 @@ go-data-structures/
 │   └── queue/                # Queue package implementation
 │       ├── queue.go          # Queue code
 │       └── queue_test.go     # Queue tests
+├── trie/                    # Trie implementation
+│   ├── README.md            # Trie documentation
+│   ├── cmd/                 # Command-line demo
+│   │   └── main.go          # Demo program for trie
+│   └── trie/                # Package implementation
+│       ├── trie.go          # Trie code
+│       └── trie_test.go     # Trie tests
 └── ... (other data structures)
 ```
 
@@ -55,6 +62,10 @@ go run main.go
 # Run the stack and queue examples
 cd stacks-queues/cmd
 go run main.go
+
+# Run the trie example
+cd trie/cmd
+go run main.go
 ```
 
 ## Available Data Structures
@@ -63,6 +74,7 @@ go run main.go
 2. **Linked List** - A linear collection of elements where each element points to the next
 3. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
 4. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+5. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
 
 ## Running Tests
 
@@ -80,6 +92,10 @@ go test ./linkedlist
 # Run tests for stack and queue
 cd stacks-queues
 go test ./stack ./queue
+
+# Run tests for trie
+cd trie
+go test ./trie
 
 # Run tests for all data structures (from root directory)
 go test ./...
