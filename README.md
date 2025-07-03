@@ -20,6 +20,13 @@ go-data-structures/
 │   └── bst/                  # Package implementation
 │       ├── bst.go            # BST code
 │       └── bst_test.go       # BST tests
+├── hash-table/              # Hash Table implementation
+│   ├── README.md            # Hash Table documentation
+│   ├── cmd/                 # Command-line demo
+│   │   └── main.go          # Demo program for hash table
+│   └── hashtable/           # Package implementation
+│       ├── hashtable.go     # Hash table code
+│       └── hashtable_test.go # Hash table tests
 ├── linked-list/              # Linked List implementation
 │   ├── cmd/                  # Command-line demo
 │   │   └── main.go           # Demo program for linked list
@@ -63,6 +70,10 @@ go run main.go
 cd stacks-queues/cmd
 go run main.go
 
+# Run the hash table example
+cd hash-table/cmd
+go run main.go
+
 # Run the trie example
 cd trie/cmd
 go run main.go
@@ -71,10 +82,11 @@ go run main.go
 ## Available Data Structures
 
 1. **Binary Search Tree** - A tree data structure with the key in each node being greater than all keys in the left subtree and less than all keys in the right subtree
-2. **Linked List** - A linear collection of elements where each element points to the next
-3. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
-4. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
-5. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
+2. **Hash Table** - A data structure that uses a hash function to map keys to values for efficient lookup
+3. **Linked List** - A linear collection of elements where each element points to the next
+4. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
+5. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+6. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
 
 ## Running Tests
 
@@ -92,6 +104,10 @@ go test ./linkedlist
 # Run tests for stack and queue
 cd stacks-queues
 go test ./stack ./queue
+
+# Run tests for hash table
+cd hash-table
+go test ./hashtable
 
 # Run tests for trie
 cd trie
