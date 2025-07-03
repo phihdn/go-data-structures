@@ -24,10 +24,9 @@ func InitTrie() *Trie {
 
 // Insert adds a new word to the Trie
 func (t *Trie) Insert(word string) {
-	wordLength := len(word)
 	currentNode := t.root
 
-	for i := 0; i < wordLength; i++ {
+	for _, char := range word {
 		// Convert the character to an array index (0-25)
 		// For example:
 		// 'a' - 'a' = 0
@@ -35,7 +34,7 @@ func (t *Trie) Insert(word string) {
 		// 'z' - 'a' = 25
 		// This maps each lowercase letter to an index in the children array,
 		// where 'a' is at index 0, 'b' is at index 1, and so on
-		charIndex := word[i] - 'a'
+		charIndex := char - 'a'
 
 		// Create a new node if the path doesn't exist
 		if currentNode.children[charIndex] == nil {
@@ -49,16 +48,15 @@ func (t *Trie) Insert(word string) {
 
 // Search checks if a word exists in the Trie
 func (t *Trie) Search(word string) bool {
-	wordLength := len(word)
 	currentNode := t.root
 
-	for i := 0; i < wordLength; i++ {
+	for _, char := range word {
 		// Convert the character to an array index (0-25)
 		// This is the same mapping used in Insert:
 		// 'a' (ASCII 97) - 'a' (ASCII 97) = 0
 		// 'b' (ASCII 98) - 'a' (ASCII 97) = 1
 		// And so on...
-		charIndex := word[i] - 'a'
+		charIndex := char - 'a'
 
 		// Return false if the path doesn't exist
 		if currentNode.children[charIndex] == nil {
@@ -72,15 +70,14 @@ func (t *Trie) Search(word string) bool {
 
 // StartsWith checks if any word in the Trie starts with the given prefix
 func (t *Trie) StartsWith(prefix string) bool {
-	prefixLength := len(prefix)
 	currentNode := t.root
 
-	for i := 0; i < prefixLength; i++ {
+	for _, char := range prefix {
 		// Convert the character to an array index (0-25)
 		// Using the same character-to-index mapping:
 		// The ASCII value of the current character minus the ASCII value of 'a'
 		// This gives us the relative position in the alphabet (0-25)
-		charIndex := prefix[i] - 'a'
+		charIndex := char - 'a'
 
 		if currentNode.children[charIndex] == nil {
 			return false
@@ -121,8 +118,8 @@ func (t *Trie) deleteHelper(node *Node, word string, depth int, found *bool) boo
 		*found = true
 
 		// Return true if this node has no children and can be deleted
-		for i := 0; i < AlphabetSize; i++ {
-			if node.children[i] != nil {
+		for _, child := range node.children {
+			if child != nil {
 				return false
 			}
 		}
@@ -149,8 +146,8 @@ func (t *Trie) deleteHelper(node *Node, word string, depth int, found *bool) boo
 
 		// Check if this node can be deleted too
 		if !node.isEnd {
-			for i := 0; i < AlphabetSize; i++ {
-				if node.children[i] != nil {
+			for _, child := range node.children {
+				if child != nil {
 					return false
 				}
 			}
@@ -177,9 +174,9 @@ func countWords(node *Node) int {
 		count = 1
 	}
 
-	for i := 0; i < AlphabetSize; i++ {
-		if node.children[i] != nil {
-			count += countWords(node.children[i])
+	for _, child := range node.children {
+		if child != nil {
+			count += countWords(child)
 		}
 	}
 
@@ -199,14 +196,14 @@ func collectWords(node *Node, prefix string, result *[]string) {
 		*result = append(*result, prefix)
 	}
 
-	for i := 0; i < AlphabetSize; i++ {
-		if node.children[i] != nil {
+	for i, child := range node.children {
+		if child != nil {
 			// Convert the index back to the corresponding character
 			// This is the inverse of the charIndex calculation:
 			// Add the index (0-25) to the ASCII value of 'a'
 			// to get the actual character ('a' to 'z')
 			char := rune('a' + i)
-			collectWords(node.children[i], prefix+string(char), result)
+			collectWords(child, prefix+string(char), result)
 		}
 	}
 }
