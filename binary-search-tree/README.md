@@ -6,6 +6,10 @@ A binary search tree (BST) implementation in Go. A binary search tree is a tree 
 - The right subtree of a node contains only nodes with keys greater than the node's key
 - The left and right subtree each must also be a binary search tree
 
+Video tutorials:
+
+- <https://www.youtube.com/watch?v=Id099WXOKNM>
+
 ## Features
 
 - Node structure with key and left/right child pointers
