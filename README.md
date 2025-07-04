@@ -1,6 +1,9 @@
 # Go Data Structures
 
-This repository contains implementations of various data structures in Go. Each implementation includes:
+This repository contains implementations of various data structures in Go. Each impleme4. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
+5. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+6. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
+7. **Heap** - A specialized tree-based data structure that satisfies the heap property, used for priority queues and heap sorttion includes:
 
 - Clean, well-documented Go code
 - Comprehensive test coverage
@@ -27,6 +30,13 @@ go-data-structures/
 │   └── hashtable/           # Package implementation
 │       ├── hashtable.go     # Hash table code
 │       └── hashtable_test.go # Hash table tests
+├── heap/                    # Heap implementation
+│   ├── README.md            # Heap documentation
+│   ├── cmd/                 # Command-line demo
+│   │   └── main.go          # Demo program for heap
+│   └── maxheap/             # Package implementation
+│       ├── maxheap.go       # Max heap code
+│       └── maxheap_test.go  # Max heap tests
 ├── linked-list/              # Linked List implementation
 │   ├── cmd/                  # Command-line demo
 │   │   └── main.go           # Demo program for linked list
@@ -74,8 +84,16 @@ go run main.go
 cd hash-table/cmd
 go run main.go
 
+# Run the heap example
+cd heap/cmd
+go run main.go
+
 # Run the trie example
 cd trie/cmd
+go run main.go
+
+# Run the heap example
+cd heap/cmd
 go run main.go
 ```
 
@@ -83,10 +101,11 @@ go run main.go
 
 1. **Binary Search Tree** - A tree data structure with the key in each node being greater than all keys in the left subtree and less than all keys in the right subtree
 2. **Hash Table** - A data structure that uses a hash function to map keys to values for efficient lookup
-3. **Linked List** - A linear collection of elements where each element points to the next
-4. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
-5. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
-6. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
+3. **Heap** - A specialized tree-based data structure that satisfies the heap property where parent nodes are always greater (max heap) or smaller (min heap) than their children
+4. **Linked List** - A linear collection of elements where each element points to the next
+5. **Stack** - A LIFO (Last In First Out) data structure that supports push and pop operations
+6. **Queue** - A FIFO (First In First Out) data structure that supports enqueue and dequeue operations
+7. **Trie** - A tree-like data structure used for efficient storage and retrieval of strings, commonly used for autocomplete and spell checking
 
 ## Running Tests
 
@@ -108,6 +127,10 @@ go test ./stack ./queue
 # Run tests for hash table
 cd hash-table
 go test ./hashtable
+
+# Run tests for heap
+cd heap
+go test ./maxheap
 
 # Run tests for trie
 cd trie
