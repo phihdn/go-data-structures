@@ -20,27 +20,27 @@ go-data-structures/
 │   └── bst/                  # Package implementation
 │       ├── bst.go            # BST code
 │       └── bst_test.go       # BST tests
-├── graph/                   # Graph implementation
-│   ├── README.md            # Graph documentation
-│   ├── cmd/                 # Command-line demo
-│   │   └── main.go          # Demo program for graph
-│   └── graph/               # Package implementation
-│       ├── graph.go         # Graph code
-│       └── graph_test.go    # Graph tests
-├── hash-table/              # Hash Table implementation
-│   ├── README.md            # Hash Table documentation
-│   ├── cmd/                 # Command-line demo
-│   │   └── main.go          # Demo program for hash table
-│   └── hashtable/           # Package implementation
-│       ├── hashtable.go     # Hash table code
+├── graph/                    # Graph implementation
+│   ├── README.md             # Graph documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for graph
+│   └── graph/                # Package implementation
+│       ├── graph.go          # Graph code
+│       └── graph_test.go     # Graph tests
+├── hash-table/               # Hash Table implementation
+│   ├── README.md             # Hash Table documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for hash table
+│   └── hashtable/            # Package implementation
+│       ├── hashtable.go      # Hash table code
 │       └── hashtable_test.go # Hash table tests
-├── heap/                    # Heap implementation
-│   ├── README.md            # Heap documentation
-│   ├── cmd/                 # Command-line demo
-│   │   └── main.go          # Demo program for heap
-│   └── maxheap/             # Package implementation
-│       ├── maxheap.go       # Max heap code
-│       └── maxheap_test.go  # Max heap tests
+├── heap/                     # Heap implementation
+│   ├── README.md             # Heap documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for heap
+│   └── maxheap/              # Package implementation
+│       ├── maxheap.go        # Max heap code
+│       └── maxheap_test.go   # Max heap tests
 ├── linked-list/              # Linked List implementation
 │   ├── cmd/                  # Command-line demo
 │   │   └── main.go           # Demo program for linked list
@@ -57,13 +57,13 @@ go-data-structures/
 │   └── queue/                # Queue package implementation
 │       ├── queue.go          # Queue code
 │       └── queue_test.go     # Queue tests
-├── trie/                    # Trie implementation
-│   ├── README.md            # Trie documentation
-│   ├── cmd/                 # Command-line demo
-│   │   └── main.go          # Demo program for trie
-│   └── trie/                # Package implementation
-│       ├── trie.go          # Trie code
-│       └── trie_test.go     # Trie tests
+├── trie/                     # Trie implementation
+│   ├── README.md             # Trie documentation
+│   ├── cmd/                  # Command-line demo
+│   │   └── main.go           # Demo program for trie
+│   └── trie/                 # Package implementation
+│       ├── trie.go           # Trie code
+│       └── trie_test.go      # Trie tests
 └── ... (other data structures)
 ```
 
